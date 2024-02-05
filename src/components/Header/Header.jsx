@@ -1,5 +1,6 @@
-import { HeaderStyled, Logo, Nav, LinkCart, ButtonTheme, LinkProducts } from "./HeaderStyled";
+import { HeaderStyled, Logo, Nav, LinkCart, ButtonTheme, LinkProducts, ButtonMenu } from "./HeaderStyled";
 import { FaShoppingCart, FaSun, FaMoon } from "react-icons/fa";
+import { RxHamburgerMenu } from "react-icons/rx";
 import { contexts } from '../Contexts/Context';
 import { useEffect } from "react";
 
@@ -16,19 +17,18 @@ export default function Header() {
 
     console.log(productsCart);
 
-
-    // Usar useEffect para isso.
-
     return(
         <HeaderStyled>
 
             <Logo to='/'>Logo</Logo>
 
+            <ButtonMenu><RxHamburgerMenu /></ButtonMenu>
+
             <Nav>
                 <LinkProducts to='/'>Products</LinkProducts>
                 <LinkCart to='/cart'>
                     <FaShoppingCart />
-                    <span>{productsQuantity}</span>
+                    {productsCart.length > 0 && <span>{productsQuantity}</span>}
                 </LinkCart>
                 <ButtonTheme onClick={toggleTheme}>{isDark ? <FaMoon /> : <FaSun />}</ButtonTheme>
             </Nav>

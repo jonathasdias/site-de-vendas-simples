@@ -4,9 +4,8 @@ import ApiAllProducts from "../../components/Api/ApiAllProducts";
 import { useState } from "react";
 
 const Form = styled.form`
-    padding: 6px;
-    margin-top: 20px;
-    
+    padding: 22px 10px;
+
     div {
         display: flex;
         justify-content: center;

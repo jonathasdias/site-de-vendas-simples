@@ -1,5 +1,5 @@
 import { useEffect } from "react";
-import { SectionProducts, SectionPayment, Product, Wapper, SectionQuantity, ButtonRemove } from "./CartStyled";
+import { SectionProducts, SectionPayment, Product, Wapper, SectionQuantity, ButtonRemove, H1Alert } from "./CartStyled";
 import { contexts } from "../../components/Contexts/Context";
 
 export default function Cart() {
@@ -43,7 +43,7 @@ export default function Cart() {
     return(
         <Wapper>
             <SectionProducts>
-                {productsCart.map((product)=> (
+                {productsCart.length > 0 ? productsCart.map((product)=> (
                     <Product key={product.id}>
                         <figure>
                             <img src={product.thumbnail.replace(/\w\.jpg/gi, "W.jpg")} alt="Imagem do produto"/>
@@ -53,6 +53,8 @@ export default function Cart() {
                             <p>{product.title}</p>
 
                             <p>{product.price.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</p>
+                            
+                            <p>Estoque: {product.initial_quantity}</p>
 
                             <ButtonRemove onClick={()=> removeProduct(product.id)}>Remover</ButtonRemove>
 
@@ -64,7 +66,8 @@ export default function Cart() {
                         </div>
 
                     </Product>
-                ))}
+                    
+                )) : <H1Alert>Carrinho vázio</H1Alert>}
             </SectionProducts>
 
             <SectionPayment>

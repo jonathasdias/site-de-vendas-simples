@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import ApiAllProducts from "../../components/Api/ApiAllProducts";
 import FormSearch from "./FormSearch";
-import { Section, ProductStyled } from "./ProductsStyled";
+import { Section, ProductStyled, H1 } from "./ProductsStyled";
 import { contexts } from "../../components/Contexts/Context";
 
 export default function Products() {
@@ -23,7 +23,7 @@ export default function Products() {
         <>
             <FormSearch/>
 
-            <h1>Seus Produtos</h1>
+            <H1>Seus Produtos</H1>
             <Section>
                 {products.map((product)=> (
 

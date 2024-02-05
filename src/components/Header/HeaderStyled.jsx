@@ -8,7 +8,23 @@ export const HeaderStyled = styled.header`
     padding: 0 20px;
     max-height: 6rem;
     height: 6rem;
-    background-color: ${({theme})=> theme.backgroundHeader};
+    background-color: ${({theme})=> theme.black};
+`
+export const ButtonMenu = styled.button`
+    all: unset;
+    width: 2.6rem;
+    height: 2.4rem;
+    display: none;
+    place-items: center;
+    font-size: 1.6em;
+    background-color: ${({theme})=> theme.logoStyle.backgroundLogo};
+    color: ${({theme})=> theme.logoStyle.colorLogo};
+
+    @media (max-width: 760px) {
+        display: grid;
+    }
+
+
 `
 
 export const Logo = styled(Link)`
@@ -25,6 +41,18 @@ export const Nav = styled.nav`
     display: flex;
     gap: 1rem;
     font-size: 1.2em;
+    background-color: ${({theme})=> theme.black};
+
+    @media (max-width: 760px) {
+        padding: 10px;
+        position: absolute;
+        top: 6rem;
+        right: 0;
+        display: none;
+        flex-direction: column;
+
+    }
+
 `
 
 export const LinkProducts = styled(NavLink)`
@@ -82,6 +110,5 @@ export const ButtonTheme = styled.button`
     border: none;
     background-color: transparent;
     font-size: 1.2em;
-    cursor: pointer;
     color: ${({theme})=> theme.textColor};
 `
