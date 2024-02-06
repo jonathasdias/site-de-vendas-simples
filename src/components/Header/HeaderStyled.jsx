@@ -24,7 +24,6 @@ export const ButtonMenu = styled.button`
         display: grid;
     }
 
-
 `
 
 export const Logo = styled(Link)`
@@ -44,15 +43,12 @@ export const Nav = styled.nav`
     background-color: ${({theme})=> theme.black};
 
     @media (max-width: 760px) {
+        flex-direction: column;
         padding: 10px;
         position: absolute;
         top: 6rem;
         right: 0;
-        display: none;
-        flex-direction: column;
-
     }
-
 `
 
 export const LinkProducts = styled(NavLink)`

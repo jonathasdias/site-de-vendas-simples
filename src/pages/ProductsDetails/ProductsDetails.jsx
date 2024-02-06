@@ -30,15 +30,14 @@ export default function ProductsDetails() {
 
     return(
         <SectionDetails>
-            {/* <h1>Products details page {id}</h1> */}
                 <figure>
-                    <img src={product.thumbnail} alt="imagem do produto"/>
-                    {/* <img src={product.thumbnail.replace(/\w\.jpg/gi, "W.jpg")} alt="imagem do produto"/> */}
+                    <img src={product.thumbnail && product.thumbnail.replace(/\w\.jpg/gi, "W.jpg")} alt="imagem do produto"/>
                 </figure>
+
                 <section>
-                    <p>{product.title}</p>
+                    <h1>{product.title}</h1>
                     <p>Quantidade: {product.initial_quantity}</p>
-                    <h4>{product.price}</h4>
+                    <h4>{product.price && product.price.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</h4>
                     <button onClick={()=> addCart(product)}><FaCartPlus/></button>
                 </section>
         </SectionDetails>

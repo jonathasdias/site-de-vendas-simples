@@ -7,17 +7,36 @@ export const SectionDetails = styled.section`
 
     figure {
         width: 50%;
-        height: 30rem;
+        height: 100%;
     }
 
     section {
         width: 50%;
         padding: 10px;
 
+        p {
+            margin: 20px 0;
+        }
+
         button {
-            padding: 8px 1.1rem;
             font-size: 1.2em;
-            cursor: pointer;
+            display: grid;
+            place-items: center;
+            width: 8rem;
+            height: 3rem;
+            margin-top: 10px;
+        }
+    }
+
+    @media (max-width: 760px) {
+        flex-direction: column;
+        
+        figure {
+            width: 100%;
+        }
+
+        section {
+            width: 100%;
         }
     }
 

@@ -1,7 +1,6 @@
 import styled from "styled-components";
 import { contexts } from '../../components/Contexts/Context';
 import ApiAllProducts from "../../components/Api/ApiAllProducts";
-import { useState } from "react";
 
 const Form = styled.form`
     padding: 22px 10px;
@@ -34,15 +33,16 @@ const Form = styled.form`
 
 export default function FormSearch() {
 
-    const [ searchProduct, setSearchProduct ] = useState();
-    const { setProducts } = contexts();
+    const { setProducts, searchProduct, setSearchProduct, setCurrentPage,totalPages, setTotalPages } = contexts();
 
     async function search(e) {
         e.preventDefault();
 
         if(searchProduct !== '') {
-            const products = await ApiAllProducts(searchProduct);
-            setProducts(products)
+            setCurrentPage(1);
+            const datas = await ApiAllProducts(searchProduct, 0);
+            setProducts(datas.results);
+            setTotalPages(Math.ceil(datas.paging.total/datas.paging.limit))
             return;
         }
     }
