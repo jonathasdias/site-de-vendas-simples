@@ -13,6 +13,7 @@ export const SectionDetails = styled.section`
     section {
         width: 50%;
         padding: 10px;
+        color: ${({theme})=> theme.textColor};
 
         p {
             margin: 20px 0;
@@ -25,6 +26,16 @@ export const SectionDetails = styled.section`
             width: 8rem;
             height: 3rem;
             margin-top: 10px;
+            border: none;
+            background-color: ${({theme})=> theme.black};
+            color: ${({theme})=> theme.textColor};
+            border-radius: 4px;
+            box-shadow: 1px 1px 10px black;
+            transition: all .5s;
+
+            &:hover {
+                transform: scale(1.02);
+            }
         }
     }
 

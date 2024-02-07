@@ -3,7 +3,7 @@ import { useState, useEffect } from "react";
 import ApiIdProducts from "../../components/Api/ApiIdProducts";
 import { FaCartPlus } from "react-icons/fa6";
 import { SectionDetails } from "./ProductsDetailsStyled";
-import { contexts } from "../../components/Contexts/Context";
+import { contexts } from "../../components/Context/Context";
 
 export default function ProductsDetails() {
 
@@ -16,7 +16,6 @@ export default function ProductsDetails() {
         async function DatasApi() {
             const datas = await ApiIdProducts(id);
             setProduct(datas);
-            console.log(datas);
         }
         DatasApi();
 

@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
+import { RiLoader2Fill } from "react-icons/ri";
 
 export const H1 = styled.h1`
     background-color: gray;
@@ -8,9 +9,34 @@ export const H1 = styled.h1`
     
 `
 
+export const Loading = styled(RiLoader2Fill)`
+    color: ${({theme})=> theme.textColor};
+    width: 100%;
+    font-size: 2em;
+    animation: spin 1.6s infinite linear;
+
+    @keyframes spin {
+        from {
+            transform: rotate(0deg);
+        }
+        to {
+            transform: rotate(360deg);
+        }
+    }
+`
+
+export const SpanAlert = styled.span`
+    display: block;
+    text-align: center;
+    font-size: 1.6em;
+    font-weight: bolder;
+    color: ${({theme})=> theme.textColor};
+    padding: 1rem;
+`
+
 export const Section = styled.section`
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
     padding: 1rem;
     gap: 1rem;
 `
@@ -22,6 +48,12 @@ export const ProductStyled = styled(Link)`
     padding: 10px;
     color: ${({theme})=> theme.textColor};
     border-radius: 10px;
+    transition: all .5s;
+
+    &:hover {
+        box-shadow: 2px 6px 18px black;
+        transform: scale(1.02);
+    }
 
     figure {
         width: 100%;
@@ -43,39 +75,5 @@ export const ProductStyled = styled(Link)`
 
     p {
         padding: 10px 0;
-    }
-`
-
-export const ContainerBtnsPage = styled.section`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 1rem;
-
-    button:last-child {
-        margin-left: 10px;
-    }
-
-    button:first-child {
-        margin-right: 10px;
-    }
-    
-    button {
-        background-color: ${({theme})=> theme.black};
-        color: ${({theme})=> theme.textColor};
-        font-size: 1.2em;
-        width: 3rem;
-        height: 3rem;
-        display: grid;
-        place-items: center;
-        border: 2px solid gray;
-    }
-
-    button:hover {
-        background-color: gray;
-    }
-
-    @media (max-width: 760px) {
-        padding: 1rem .5rem;
     }
 `

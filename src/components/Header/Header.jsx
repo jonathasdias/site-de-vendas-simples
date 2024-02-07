@@ -1,43 +1,40 @@
 import { HeaderStyled, Logo, Nav, LinkCart, ButtonTheme, LinkProducts, ButtonMenu } from "./HeaderStyled";
 import { FaShoppingCart, FaSun, FaMoon } from "react-icons/fa";
 import { RxHamburgerMenu } from "react-icons/rx";
-import { contexts } from '../Contexts/Context';
-import { useEffect, useState } from "react";
+import { contexts } from '../Context/Context';
+import { useState } from "react";
 
 export default function Header() {
 
-    const {toggleTheme, isDark, productsCart, productsQuantity, setProductsQuantity} = contexts();
-    const [ isOpenMenu, setIsOpenMenu ] = useState(true);
+    const {isDark, setIsDark, productsCart} = contexts();
+    const [ isOpenMenu, setIsOpenMenu ] = useState(false);
 
-    // const quantity = productsCart.reduce((accumulator,currentValue)=> {
-    //     return parseInt(accumulator) + parseInt(currentValue.product_quantity);
-    // },0);
-
-    useEffect(()=> {
-        const quantity = productsCart.reduce((accumulator,currentValue)=> {
-            return parseInt(accumulator) + parseInt(currentValue.product_quantity);
-        },0);
-        setProductsQuantity(quantity);
-    },[productsCart]);
-
-    console.log(productsCart);
+    const productsQuantity = productsCart.reduce((accumulator,currentValue)=> {
+        return parseInt(accumulator) + parseInt(currentValue.product_quantity);
+    },0);
 
     function toggleMenu() {
         setIsOpenMenu(prev=> !prev);
     }
 
+    function toggleTheme() {
+        setIsDark(prev=> !prev);
+    }
+
     return(
         <HeaderStyled>
 
-            <Logo to='/'>Logo</Logo>
+            <Logo to='/'>CompreOn</Logo>
 
             <ButtonMenu onClick={toggleMenu}><RxHamburgerMenu /></ButtonMenu>
 
-            <Nav style={{display: isOpenMenu ? 'flex' : 'none'}}>
+            <Nav className={isOpenMenu ? 'open' : ''}>
                 <LinkProducts to='/'>Products</LinkProducts>
                 <LinkCart to='/cart'>
-                    <FaShoppingCart />
-                    {productsCart.length > 0 && <span>{productsQuantity}</span>}
+                    <div>
+                        <FaShoppingCart />
+                        {productsCart.length > 0 && <span>{productsQuantity}</span>}
+                    </div>
                 </LinkCart>
                 <ButtonTheme onClick={toggleTheme}>{isDark ? <FaMoon /> : <FaSun />}</ButtonTheme>
             </Nav>

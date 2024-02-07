@@ -43,11 +43,17 @@ export const Nav = styled.nav`
     background-color: ${({theme})=> theme.black};
 
     @media (max-width: 760px) {
+        display: none;
         flex-direction: column;
         padding: 10px;
         position: absolute;
         top: 6rem;
         right: 0;
+        width: 40%;
+
+        &.open {
+            display: flex;
+        }
     }
 `
 
@@ -77,7 +83,6 @@ export const LinkCart = styled(NavLink)`
     border-radius: 1rem;
     display: grid;
     place-items: center;
-    position: relative;
     
     &:hover {
         background-color: ${({theme})=> theme.linkHover.backgroundLink};
@@ -89,16 +94,21 @@ export const LinkCart = styled(NavLink)`
         color: ${({theme})=> theme.linkHover.colorLink};
     }
 
+    div {
+        position: relative;
+    }
+
     span {
         display: block;
         color: black;
         background-color: rgb(218, 210, 210);
         border-radius: 100%;
         padding: 0 4px;
-        font-size: .7em;
+        font-size: .5em;
+        font-weight: bolder;
         position: absolute;
-        top: 2px;
-        right: 4px;
+        top: -8px;
+        right: -8px;
     }
 `
 

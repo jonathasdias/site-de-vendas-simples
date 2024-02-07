@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom/client'
 import App from './App.jsx'
-import { Context } from './components/Contexts/Context.jsx';
+import { Context } from './components/Context/Context.jsx';
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
 import Products from './pages/Products/Products.jsx';
 import ProductsDetails from './pages/ProductsDetails/ProductsDetails.jsx';
