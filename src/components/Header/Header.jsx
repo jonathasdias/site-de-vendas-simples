@@ -26,17 +26,17 @@ export default function Header() {
 
             <Logo to='/'>CompreOn</Logo>
 
-            <ButtonMenu onClick={toggleMenu}><RxHamburgerMenu /></ButtonMenu>
+            <ButtonMenu onClick={toggleMenu} aria-pressed={isOpenMenu ? "true" : "false"} aria-label="Abrir menu"><RxHamburgerMenu aria-hidden="true"/></ButtonMenu>
 
             <Nav className={isOpenMenu ? 'open' : ''}>
                 <LinkProducts to='/'>Products</LinkProducts>
                 <LinkCart to='/cart'>
                     <div>
-                        <FaShoppingCart />
+                        <FaShoppingCart aria-hidden="true"/>
                         {productsCart.length > 0 && <span>{productsQuantity}</span>}
                     </div>
                 </LinkCart>
-                <ButtonTheme onClick={toggleTheme}>{isDark ? <FaMoon /> : <FaSun />}</ButtonTheme>
+                <ButtonTheme onClick={toggleTheme} aria-label="Modo noturno">{isDark ? <FaMoon aria-hidden="true"/> : <FaSun aria-hidden="true"/>}</ButtonTheme>
             </Nav>
             
         </HeaderStyled>

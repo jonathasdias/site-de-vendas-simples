@@ -28,7 +28,7 @@ export default function FormSearch() {
         <Form onSubmit={search}>
             <div>
                 <input type="search" name="search" ref={inputSearch} onChange={(e)=> setSearchProduct(e.target.value)} placeholder="Procure seu produto..."/>
-                <button type="submit"><GoSearch /></button>
+                <button type="submit" aria-label="Pesquisar"><GoSearch aria-hidden="true"/></button>
             </div>
         </Form>
     )

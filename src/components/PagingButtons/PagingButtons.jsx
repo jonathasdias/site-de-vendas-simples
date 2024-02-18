@@ -39,13 +39,13 @@ export default function PagingButtons() {
 
     return(
         <ContainerBtnsPage>
-            <button onClick={handlePrevPage}><FaAngleLeft /></button>
+            <button onClick={handlePrevPage} aria-label="Página anterior"><FaAngleLeft aria-hidden="true"/></button>
                 {visiblePages.map((page)=> (
-                    <button key={'page'+page} style={{ fontWeight: page === currentPage ? 'bolder' : 'normal', backgroundColor: page === currentPage ? 'gray' : '' }} onClick={() => handlePageClick(page)}>
+                    <button key={'page'+page} aria-label={"Pagina " + page} style={{ fontWeight: page === currentPage ? 'bolder' : 'normal', backgroundColor: page === currentPage ? 'gray' : '' }} onClick={() => handlePageClick(page)}>
                         {page}
                     </button>
                 ))}
-            <button onClick={handleNextPage}><FaAngleRight /></button>
+            <button onClick={handleNextPage} aria-label="Próxima página"><FaAngleRight aria-hidden="true"/></button>
         </ContainerBtnsPage>
     )
 }

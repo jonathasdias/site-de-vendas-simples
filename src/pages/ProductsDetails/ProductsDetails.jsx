@@ -37,7 +37,7 @@ export default function ProductsDetails() {
                     <h1>{product.title}</h1>
                     <p>Quantidade: {product.initial_quantity}</p>
                     <h4>{product.price && product.price.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</h4>
-                    <button onClick={()=> addCart(product)}><FaCartPlus/></button>
+                    <button onClick={()=> addCart(product)}><FaCartPlus aria-hidden="true"/></button>
                 </section>
         </SectionDetails>
     )

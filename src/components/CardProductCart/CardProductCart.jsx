@@ -49,12 +49,12 @@ export default function CartProductCart() {
                         
                         <p>Estoque: {product.initial_quantity}</p>
 
-                        <ButtonRemove onClick={()=> removeProduct(product.id)}>Remover</ButtonRemove>
+                        <ButtonRemove onClick={()=> removeProduct(product.id)} aria-label="Remover produto do carrinho">Remover</ButtonRemove>
 
                         <SectionQuantity>
-                            <button onClick={()=> fewerProducts(product.id)}>-</button>
+                            <button onClick={()=> fewerProducts(product.id)} aria-label="Menos produtos">-</button>
                             <span>{product.product_quantity}</span>
-                            <button onClick={()=> moreProducts(product.id)}>+</button>
+                            <button onClick={()=> moreProducts(product.id)} aria-label="Mais produtos">+</button>
                         </SectionQuantity>
                     </div>
 

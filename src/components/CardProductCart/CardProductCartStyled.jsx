@@ -63,10 +63,10 @@ export const Product = styled.article`
 `
 
 export const LinkProducts = styled(Link)`
-    color: ${({theme})=> theme.textColor};
+    color: rgb(18, 18, 209);
 
     &:hover {
-        color: blue;
+        color: rgb(0, 0, 255);
     }
 `
 

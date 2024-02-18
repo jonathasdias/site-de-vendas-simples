@@ -64,7 +64,7 @@ export const ProductStyled = styled(Link)`
         }
     }
 
-    h4 {
+    p {
         display: -webkit-box;
         -webkit-line-clamp: 2;
         overflow: hidden;
@@ -73,7 +73,8 @@ export const ProductStyled = styled(Link)`
         word-spacing: 4px;
     }
 
-    p {
+    span {
+        display: block;
         padding: 10px 0;
     }
 `

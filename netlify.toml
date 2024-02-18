@@ -1,0 +1,5 @@
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Content-Encoding = ["br", "gzip"]
+    Vary = "Accept-Encoding"

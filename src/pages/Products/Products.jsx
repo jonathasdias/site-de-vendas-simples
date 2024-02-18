@@ -37,9 +37,9 @@ export default function Products() {
                             <img src={product.thumbnail.replace(/\w\.jpg/gi, "W.jpg")} alt="imagem do produto"/>
                         </figure>
                         
-                        <h4>{product.title}</h4>
+                        <p>{product.title}</p>
 
-                        <p>{product.price.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</p>
+                        <span>{product.price.toLocaleString('pt-BR', {style: 'currency', currency: 'BRL'})}</span>
                     </ProductStyled>
 
                 )) : <SpanAlert>Produto não encontrado</SpanAlert>}
