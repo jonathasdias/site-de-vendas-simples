@@ -27,7 +27,7 @@ export default function Products() {
 
             <H1>Seus Produtos</H1>
 
-            <PagingButtons/>
+            {!isLoad && <PagingButtons/>}
 
             <Section>
                 { isLoad ? (<Loading/>) : products.length > 0 ? products.map((product)=> (
@@ -45,7 +45,7 @@ export default function Products() {
                 )) : <SpanAlert>Produto não encontrado</SpanAlert>}
             </Section>
 
-            <PagingButtons/>
+            {!isLoad && <PagingButtons/>}
 
         </>
     )
